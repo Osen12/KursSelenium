@@ -22,8 +22,7 @@ public class FirstTest extends BaseTest {
 
     @Test
     public void firstTest() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        driver = DriverFactory.getDriver();
         driver.get("https://testeroprogramowania.github.io/selenium/wait2.html");
         driver.findElement(By.id("clickOnMe")).click();
         waitForElementToExist(By.cssSelector("p"));
@@ -33,7 +32,7 @@ public class FirstTest extends BaseTest {
 
         Assert.assertEquals(para.isDisplayed(), true);
         Assert.assertTrue(para.isDisplayed(), "Element is not displayed");
-        //Assert.assertEquals(para.getText(),"Dopiero", "Teksty są różne");
+        Assert.assertEquals(para.getText(),"Dopiero", "Teksty są różne");
         Assert.assertTrue(para.getText().startsWith("Dopiero"));
         Assert.assertFalse(para.getText().startsWith("Pojawiłem"));
         Assert.assertEquals(para.getText(), "Dopiero się pojawiłem!");
@@ -58,7 +57,7 @@ public class FirstTest extends BaseTest {
 
         softAssert.assertEquals(para.isDisplayed(), true);
         softAssert.assertTrue(para.isDisplayed(), "Element is not displayed");
-        softAssert.assertEquals(para.getText(),"Dopiero", "Teksty są różne");
+        //softAssert.assertEquals(para.getText(),"Dopiero", "Teksty są różne");
         softAssert.assertTrue(para.getText().startsWith("Dopiero"));
         softAssert.assertFalse(para.getText().startsWith("Pojawiłem"));
         softAssert.assertEquals(para.getText(), "Dopiero się pojawiłem!");

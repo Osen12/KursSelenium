@@ -25,4 +25,5 @@ public class ActionsTest {
             // podwojne klikniecie na dany element
             actions.doubleClick(driver.findElement(By.id("bottom"))).perform();
 }
+
 }
